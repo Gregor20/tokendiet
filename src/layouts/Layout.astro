@@ -1,0 +1,54 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "TokenDiet - Reduce tus costos de API de IA minificando tu código",
+  description = "Herramienta gratuita en el navegador para minificar código, eliminar comentarios y espacios innecesarios antes de enviarlo a ChatGPT, Claude o Gemini. Ahorra tokens y dinero.",
+} = Astro.props;
+
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#090a0f" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="TokenDiet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-[#090a0f] text-slate-200 antialiased font-sans flex flex-col selection:bg-emerald-500/25 selection:text-emerald-300">
+    <!-- Subtle Background Glow -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-emerald-500/10 blur-[130px] rounded-full"></div>
+      <div class="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-blue-500/5 blur-[150px] rounded-full"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20"></div>
+    </div>
+
+    <slot />
+  </body>
+</html>
